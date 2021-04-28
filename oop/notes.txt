@@ -1,0 +1,5 @@
+Encapsulation
+-   Bundling data/methods within a class.
+-   Prevent anything outside of the class to access/modify such data and methods.
+-   Only way to access is through process, to prevent errors.
+-   Public methods to access private data [Getters + Setters]

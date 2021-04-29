@@ -1,5 +1,22 @@
+Access Modifiers
+-   Public
+-   Private
+-   Protected
 Encapsulation
 -   Bundling data/methods within a class.
 -   Prevent anything outside of the class to access/modify such data and methods.
 -   Only way to access is through process, to prevent errors.
 -   Public methods to access private data [Getters + Setters]
+Abstraction
+-   Making a pure virtual function in a seperate class. Allows for multiple values/functions to operate when used.
+-   Must define value/function when called.
+Inheritence
+-   Creating a parent (super) class with a child (sub/derived) class to base molds of previous forms of data passed.
+-           IE: Car base/parent/super class share most commonalitis, but will differentiate when describe fuel/recharge rate.
+-   Derived/Child class must have constructor as will to deviate from parent/super class.
+-           REMEMBER: Constructor class (1) Has no return type (2) Must be same name as parent class (3) Must be public
+Polymorphism
+-   Object/Method has many forms.
+-   Used primarly when a parent refers to a child class.
+-   Method is stagnant/templated in parent class, but child class restructures/changes value/format when using/applying it.
+-   Most recent derived version of function/method gets executed.

@@ -2,6 +2,7 @@
 using namespace std;
 
 // Is abstraction when making class type a pure virtual function
+// Optional pure or "undefined" function, to take place/value differently depending on usage.
 class AbstractEmployee
 {
     // virtual == abstraction (pure)

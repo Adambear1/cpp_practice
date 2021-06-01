@@ -1,0 +1,50 @@
+Bust Waiting
+    - Spinning; waiting for one thread to be completed before next thread fires.
+    - Good for asynchronous. But poor for performance becasue there isn't direct communication on when to fire.
+    - Condition Variable:
+        -   A place for threads to wait to get fired (means of direct communication)
+        -   3 Opertions:
+                -   Wait
+                    -   Releases lock on mutex; and puts thread on pause (sleep)
+                -   Signal
+                    -   Alerts threads in waiting que, to notify/wake.
+                -   Broadcast
+                    -   Similar to signal, but done so for all threads in que, instead of one specific.
+        -   Shared que/buffer can allow for additional conditions to satisfy all instaces.
+
+queue
+    - Operates in a FIFO format.
+    - Since its a shared resource, there must be mutual exclusion between producers and consumers.
+        -   Must also assure that producer doesn't add to a full que, and consumer doesn't take from an empty one.
+    - Imbalances create a buffer overflow, where consumer cannot keep up with producer.
+        -   Can also under perform, where producer cannot operate quick enough for consumers.
+        -   Unbounded ques --> A que with unlimited capacity, but limited in memory (done so through linked lists)
+    - Able to fix overflow through threads running in parallel.
+        -   Done so through pipeline
+        -   Pair of producer/consumer pairs, but must have consumers (threads) operate at/or faster than producers
+Semaphore
+    -   Way to execute code synchronisly.
+    -   Can be used by many threads at same time (unlike mutex)
+        -   Includes counter to track number of threads in action [starts at number of possible threads and goes to 0].
+        -   As long as the counter is positive, it will allow threads to still use (but decrements [balances] counter).
+        -   Counter = 0, then threads put in queue to wait, until active threads are released.
+            -   Counting Semaphor
+                -   Used in software mainly for pool of connections (database/server), or to track items in the queue.
+            -   Binary Semaphor
+                -   Only tells if locked or unlocked, does not keep track. Almost identical to mutex.
+                -   Difference is that mutex can only be released to be same that is active; where a binary semaphore can be released by different threads.
+                    -   Purpose is to use Semaphor as a signaling mechanism.
+Data Races:
+    -   Two or more threads use same memory location. Especially if one thread writes/updates memory location, while another is reading, it will throw an error.
+Race Conditions:
+    -  Flaw in execution/timing on event to cause program to run incorrectly. 
+Hesienbug:
+    -   An invisible error during runtime of code.
+        -   Effecitivly forms of race conditions, where code itself works, but when compiled and ran, there are untrackable errors.
+Barriers:
+    -   Way to prevent racing conditions, by assuring such barrier guides, or maintains code from overlapping.
+        -   Essentially makes sure that all of one thread's tasks are completed before next thread gets executed.
+Latch:
+    -   Allows for 1+ threads to wait until ready for operation (just like barriers + semaphore).
+    -   Count down method to track threads in action.
+        -   Different than barrier because it releases certain number of threads are waiting (threshold).

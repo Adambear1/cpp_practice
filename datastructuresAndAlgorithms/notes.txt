@@ -1,0 +1,19 @@
+Data Structures:
+    -   Way to structure data to retrieve/use effectively
+    -   Two Types of Data Sets:
+        -   Mathamatical/logical levels (Abstract data type [ADT]):
+                -   High level, theory of how/why data is structured in such a Way
+                -   EX:
+                    -   List (Array) of how data is laid out and interacting with model.
+        -   Implimentation (Concrete Type):
+                -   Code in action; the way it is executed and performs.
+                -   EX:
+                    -   Linked Lists, Tree, Queue, Stack
+
+    - Need to Analyze Data Structure in 4 Terms:
+        -   Logical View
+        -   Operations
+        -   Cost (time)
+        -   Implimentation
+
+    
